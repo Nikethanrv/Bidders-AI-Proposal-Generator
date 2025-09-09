@@ -5,7 +5,7 @@ const recommendationRoute = require("./routes/recommendationRoute.js")
 const app = express()
 app.use(express.json())
 
-mongoose.connect("mongodb+srv://sathyanick17_db_user:GtRaeAFfK9rCtEW4@ai-proposal-generator-c.dtva1ok.mongodb.net/AI-proposalDB")
+mongoose.connect("mongodb+srv://<uname>_db_user:<password>@ai-proposal-generator-c.dtva1ok.mongodb.net/AI-proposalDB")
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.log(err))
 
