@@ -7,10 +7,11 @@ const helmet = require("helmet");
 const openaiService = require("./services/openaiService");
 const tenderService = require("./services/tenderService");
 const companyService = require("./services/companyService");
-const paymentService = require("./services/paymentService");
+// const paymentService = require("./services/paymentService");
 
 // Import controllers
 const TenderController = require("./controllers/tenderController");
+const proposalFormatsController = require("./controllers/proposalFormatsController");
 
 // Import middleware
 const { authenticateUser, optionalAuth } = require("./middleware/auth");
@@ -118,6 +119,10 @@ app.use("/api/auth", authRoutes);
 const proposalRoutes = require("./routes/proposals");
 app.use("/api/proposals", proposalRoutes);
 
+// Proposal formats routes
+const proposalFormatsRoutes = require("./routes/proposalFormats")
+app.use("/api/proposal-formats", proposalFormatsRoutes);
+
 // Tender routes
 app.post("/api/tenders", async (req, res) => {
   try {
@@ -187,6 +192,7 @@ app.put("/api/companies/profile", async (req, res) => {
 });
 
 // Payment routes
+/*
 app.post("/api/payments/create-intent", async (req, res) => {
   try {
     const { amount, currency, metadata } = req.body;
@@ -333,7 +339,7 @@ app.post(
     }
   }
 );
-
+*/
 // Basic route
 app.get("/api", (req, res) => {
   res.json({
